@@ -34,6 +34,8 @@ __export(src_exports, {
   airAuthenticationConfig: () => airAuthenticationConfig
 });
 module.exports = __toCommonJS(src_exports);
+
+// src/components/airAuthenticationConfig.ts
 var import_next_auth = __toESM(require("next-auth"), 1);
 var import_credentials = __toESM(require("next-auth/providers/credentials"), 1);
 var airAuthenticationConfig = (customAuthorizer) => ({
