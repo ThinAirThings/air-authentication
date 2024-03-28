@@ -7,7 +7,7 @@ type OAuthUser = {
     image?: string;
 };
 
-declare const airAuthenticationConfig: <U extends Record<string, any>, C extends Record<string, any> = Record<string, any>>(customAuthorizer: (payload: C) => U | Promise<U | null> | null) => ({ redirectTo, providers, getProfileFromProvider, createAccountFromProviderIfDoesNotExist }: {
+declare const configAirAuthentication: <U extends Record<string, any>, C extends Record<string, any> = Record<string, any>>(customAuthorizer: (payload: C) => U | Promise<U | null> | null) => ({ redirectTo, providers, getProfileFromProvider, createAccountFromProviderIfDoesNotExist }: {
     redirectTo: string;
     providers?: _auth_core_providers.Provider[] | undefined;
     getProfileFromProvider?: ((payload: OAuthUser & {
@@ -29,4 +29,4 @@ declare const airAuthenticationConfig: <U extends Record<string, any>, C extends
     } | undefined) => Promise<R extends false ? any : never>;
 };
 
-export { airAuthenticationConfig };
+export { configAirAuthentication };

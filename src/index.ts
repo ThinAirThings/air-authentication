@@ -2,4 +2,4 @@
 
 
 
-export * from './configs/airAuthenticationConfig';
+export * from './configs/configAirAuthentication';
