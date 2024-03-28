@@ -38,7 +38,9 @@ module.exports = __toCommonJS(src_exports);
 // src/configs/airAuthenticationConfig.ts
 var import_next_auth = __toESM(require("next-auth"), 1);
 var import_credentials = __toESM(require("next-auth/providers/credentials"), 1);
+var import_navigation = require("next/navigation");
 var airAuthenticationConfig = (customAuthorizer) => ({
+  redirectTo,
   providers,
   getProfileFromProvider,
   createAccountFromProviderIfDoesNotExist
@@ -55,19 +57,14 @@ var airAuthenticationConfig = (customAuthorizer) => ({
         if (user) {
           const provider = account.provider;
           if (provider === "credentials") {
-            console.log("Credentials Provider");
             if (user) {
               token = {
                 ...token,
                 ...Object.fromEntries(Object.entries(user).map(([key, value]) => [key, value]))
               };
             }
-            console.log("TOKEN1", token);
             return token;
           }
-          console.log(account);
-          console.log("INSIDE JWT");
-          console.log("USER1", user);
           const existingDbUser = await getProfileFromProvider?.({
             ...user,
             providerId: account.providerAccountId,
@@ -89,17 +86,13 @@ var airAuthenticationConfig = (customAuthorizer) => ({
             ...token,
             ...Object.fromEntries(Object.entries(newUser).map(([key, value]) => [key, value]))
           };
-          console.log("TOKEN1", token);
         }
         return token;
       },
       session: ({ session, token }) => {
-        console.log("SESSION1", session);
-        console.log("TOKEN2", token);
         if (session.user && token.sub) {
           session.user = Object.fromEntries(Object.entries(token).map(([key, value]) => [key, value]));
         }
-        console.log("USER2", session.user);
         return session;
       }
     }
@@ -110,7 +103,10 @@ var airAuthenticationConfig = (customAuthorizer) => ({
     auth: async () => await auth().then(
       (session) => session?.user ? session.user : null
     ),
-    signIn: async (provider, credentials) => await signIn(provider, { ...credentials }),
+    signIn: async (provider, credentials) => {
+      await signIn(provider, { ...credentials });
+      (0, import_navigation.redirect)(redirectTo);
+    },
     signOut
   };
 };

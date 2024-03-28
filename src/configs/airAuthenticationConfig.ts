@@ -1,6 +1,7 @@
 import NextAuth, { NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials";
 import { OAuthUser } from "../types/OAuthUser";
+import { redirect } from "next/navigation";
 
 export const airAuthenticationConfig = <
     U extends Record<string, any>,
@@ -8,10 +9,12 @@ export const airAuthenticationConfig = <
 >(
     customAuthorizer: (payload: C) => Promise<U | null> | (U | null)
 ) => ({
+    redirectTo,
     providers,
     getProfileFromProvider,
     createAccountFromProviderIfDoesNotExist
 }: {
+    redirectTo: string,
     providers?: NextAuthConfig['providers'],
     getProfileFromProvider?: (payload: OAuthUser & {
         providerId: string
@@ -34,19 +37,14 @@ export const airAuthenticationConfig = <
                     if (user) {
                         const provider = account!.provider
                         if (provider === 'credentials') {
-                            console.log("Credentials Provider")
                             if (user) {
                                 token = {
                                     ...token,
                                     ...Object.fromEntries(Object.entries(user).map(([key, value]) => [key, value]))
                                 }
                             }
-                            console.log("TOKEN1", token)
                             return token
                         }
-                        console.log(account)
-                        console.log("INSIDE JWT")
-                        console.log("USER1", user)
                         const existingDbUser = await getProfileFromProvider?.({
                             ...user as OAuthUser,
                             providerId: account!.providerAccountId,
@@ -68,17 +66,13 @@ export const airAuthenticationConfig = <
                             ...token,
                             ...Object.fromEntries(Object.entries(newUser).map(([key, value]) => [key, value]))
                         }
-                        console.log("TOKEN1", token)
                     }
                     return token
                 },
                 session: ({ session, token }) => {
-                    console.log("SESSION1", session)
-                    console.log("TOKEN2", token)
                     if (session.user && token.sub) {
                         session.user = Object.fromEntries(Object.entries(token).map(([key, value]) => [key, value])) as any
                     }
-                    console.log("USER2", session.user)
                     return session as any
                 }
             }
@@ -89,7 +83,10 @@ export const airAuthenticationConfig = <
             auth: async () => await auth().then(session =>
                 session?.user ? session.user : null
             ) as unknown as U,
-            signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => await signIn(provider, { ...credentials }),
+            signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
+                await signIn(provider, { ...credentials })
+                redirect(redirectTo)
+            },
             signOut
         }
     }
