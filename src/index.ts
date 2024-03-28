@@ -3,7 +3,8 @@ import Credentials from "next-auth/providers/credentials";
 import { OAuthUser } from "./types/OAuthUser";
 
 
-export const airAuthConfig = <
+
+export const airAuthenticationConfig = <
     U extends Record<string, any>,
     C extends Record<string, any> = Record<string, any>,
 >(

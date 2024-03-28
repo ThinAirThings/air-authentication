@@ -1,28 +1,37 @@
 {
-    "name": "@thinairthings/air-dynamodb",
-    "version": "0.1.15",
+    "name": "@thinairthings/air-authentication",
+    "version": "0.1.1",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "type": "module",
     "scripts": {
         "build": "tsup",
         "npmpub": "npm run build && git add . && git commit -m \"mod\" && git push && npm version patch && npm publish --access public",
-        "format": "npx prettier --write .",
-        "mdx": "NODE_ENV=dev mdx-to-md README.mdx",
-        "watch-mdx": "nodemon --watch README.mdx -e mdx --exec 'NODE_ENV=dev mdx-to-md README.mdx'"
+        "format": "npx prettier --write ."
     },
     "files": [
         "dist"
     ],
+    "exports": {
+        "node": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        },
+        "default": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ThinAirThings/air-dynamodb.git"
+        "url": "git+https://github.com/thinairthings/air-authentication.git"
     },
     "devDependencies": {
         "@types/node": "20.6.3",
-        "mdx-to-md": "^0.3.2",
         "tsup": "^7.2.0",
-        "typescript": "~5.2.2",
-        "@mdx-js/mdx": "^3.0.1"
+        "typescript": "~5.2.2"
     },
     "keywords": [],
     "author": "Dan Lannan",

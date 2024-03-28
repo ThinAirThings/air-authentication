@@ -5,5 +5,8 @@ export default defineConfig({
     clean: true,
     shims: true,
     dts: true,
-    format: ["cjs"],
+    format: ["esm", "cjs"],
+    banner: {
+        js: `'use server'`,
+    },
 });
