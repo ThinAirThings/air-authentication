@@ -89,7 +89,7 @@ export const configAirAuthentication = <
                 session?.user ? session.user : null
             ) as unknown as U,
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
-                return await signIn(provider, { ...credentials, callbackUrl: redirectTo })
+                return await signIn(provider, { ...credentials, redirect: false })
                 // console.log("DONE SIGNING IN")
                 // redirect(redirectTo)
                 // console.log("DONE REDIRECTING")

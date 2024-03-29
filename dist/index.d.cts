@@ -22,7 +22,7 @@ declare const configAirAuthentication: <U extends Record<string, any>, C extends
     GET: (req: next_server.NextRequest) => Promise<Response>;
     POST: (req: next_server.NextRequest) => Promise<Response>;
     auth: () => Promise<U>;
-    signIn: (provider: _auth_core_providers.BuiltInProviderType | (string & {}) | undefined, credentials?: C | undefined) => Promise<never>;
+    signIn: (provider: _auth_core_providers.BuiltInProviderType | (string & {}) | undefined, credentials?: C | undefined) => Promise<any>;
     signOut: <R extends boolean = true>(options?: {
         redirectTo?: string | undefined;
         redirect?: R | undefined;

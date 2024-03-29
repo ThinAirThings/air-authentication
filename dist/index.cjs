@@ -106,7 +106,7 @@ var configAirAuthentication = (customAuthorizer) => ({
       (session) => session?.user ? session.user : null
     ),
     signIn: async (provider, credentials) => {
-      return await signIn(provider, { ...credentials, callbackUrl: redirectTo });
+      return await signIn(provider, { ...credentials, redirect: false });
     },
     signOut
   };
