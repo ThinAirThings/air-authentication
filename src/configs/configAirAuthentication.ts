@@ -34,8 +34,6 @@ export const configAirAuthentication = <
             ],
             callbacks: {
                 jwt: async ({ user, token, account }) => {
-                    console.log("JWT")
-                    console.log({ user, token, account })
                     if (user) {
                         const provider = account!.provider
                         if (provider === 'credentials') {
@@ -73,8 +71,6 @@ export const configAirAuthentication = <
                     return token
                 },
                 session: ({ session, token }) => {
-                    console.log("SESSION")
-                    console.log({ session, token })
                     if (session.user && token.sub) {
                         session.user = Object.fromEntries(Object.entries(token).map(([key, value]) => [key, value])) as any
                     }
@@ -90,9 +86,7 @@ export const configAirAuthentication = <
             ) as unknown as U,
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
                 await signIn(provider, { ...credentials, redirect: false })
-                console.log("DONE SIGNING IN")
                 redirect(redirectTo)
-                // console.log("DONE REDIRECTING")
             },
             signOut
         }
