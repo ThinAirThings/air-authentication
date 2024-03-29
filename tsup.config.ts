@@ -7,6 +7,6 @@ export default defineConfig({
     dts: true,
     format: ["esm", "cjs"],
     banner: {
-        js: `'use server'`,
+        // js: `'use server'`,
     },
 });
