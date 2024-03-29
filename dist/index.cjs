@@ -37,6 +37,7 @@ module.exports = __toCommonJS(src_exports);
 // src/configs/configAirAuthentication.ts
 var import_next_auth = __toESM(require("next-auth"), 1);
 var import_credentials = __toESM(require("next-auth/providers/credentials"), 1);
+var import_navigation = require("next/navigation");
 var configAirAuthentication = (customAuthorizer) => ({
   redirectTo,
   providers,
@@ -106,7 +107,9 @@ var configAirAuthentication = (customAuthorizer) => ({
       (session) => session?.user ? session.user : null
     ),
     signIn: async (provider, credentials) => {
-      return await signIn(provider, { ...credentials, redirect: false });
+      await signIn(provider, { ...credentials, redirect: false });
+      console.log("DONE SIGNING IN");
+      (0, import_navigation.redirect)(redirectTo);
     },
     signOut
   };
