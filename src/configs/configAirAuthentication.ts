@@ -47,6 +47,7 @@ export const configAirAuthentication = <
                             }
                             return token
                         }
+
                         const existingDbUser = await getProfileFromProvider?.({
                             ...user as OAuthUser,
                             providerId: account!.providerAccountId,
