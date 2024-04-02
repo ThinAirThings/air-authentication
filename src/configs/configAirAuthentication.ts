@@ -89,7 +89,7 @@ export const configAirAuthentication = <
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
                 await signIn(provider, { ...credentials, redirect: false })
                 console.log(provider)
-                redirect(redirectTo)
+                // redirect(redirectTo)
             },
             signOut
         }
