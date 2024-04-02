@@ -34,6 +34,7 @@ export const configAirAuthentication = <
             ],
             callbacks: {
                 jwt: async ({ user, token, account }) => {
+                    console.log(user, token, account)
                     if (user) {
                         const provider = account!.provider
                         if (provider === 'credentials') {
@@ -71,6 +72,7 @@ export const configAirAuthentication = <
                     return token
                 },
                 session: ({ session, token }) => {
+                    console.log(session, token)
                     if (session.user && token.sub) {
                         session.user = Object.fromEntries(Object.entries(token).map(([key, value]) => [key, value])) as any
                     }

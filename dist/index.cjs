@@ -53,6 +53,7 @@ var configAirAuthentication = (customAuthorizer) => ({
     ],
     callbacks: {
       jwt: async ({ user, token, account }) => {
+        console.log(user, token, account);
         if (user) {
           const provider = account.provider;
           if (provider === "credentials") {
@@ -89,6 +90,7 @@ var configAirAuthentication = (customAuthorizer) => ({
         return token;
       },
       session: ({ session, token }) => {
+        console.log(session, token);
         if (session.user && token.sub) {
           session.user = Object.fromEntries(Object.entries(token).map(([key, value]) => [key, value]));
         }
