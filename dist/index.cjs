@@ -104,6 +104,7 @@ var configAirAuthentication = (customAuthorizer) => ({
     ),
     signIn: async (provider, credentials) => {
       await signIn(provider, { ...credentials, redirect: false });
+      console.log(provider);
       (0, import_navigation.redirect)(redirectTo);
     },
     signOut
