@@ -25,6 +25,7 @@ export const configAirAuthentication = <
         provider: string;
     }) => Promise<U> | U
 }) => {
+        console.log(providers)
         const { signIn, signOut, auth, handlers: { GET, POST } } = NextAuth({
             providers: [
                 Credentials({

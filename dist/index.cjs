@@ -43,6 +43,7 @@ var configAirAuthentication = (customAuthorizer) => ({
   getProfileFromProvider,
   createAccountFromProviderIfDoesNotExist
 }) => {
+  console.log(providers);
   const { signIn, signOut, auth, handlers: { GET, POST } } = (0, import_next_auth.default)({
     providers: [
       (0, import_credentials.default)({
