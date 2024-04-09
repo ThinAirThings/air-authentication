@@ -7,7 +7,9 @@ type OAuthUser = {
     image?: string;
 };
 
-declare const configAirAuthentication: <U extends Record<string, any>, C extends Record<string, any> = Record<string, any>>(customAuthorizer: (payload: C) => U | Promise<U | null> | null) => ({ redirectTo, providers, getProfileFromProvider, createAccountFromProviderIfDoesNotExist }: {
+declare const configAuthentication: <U extends Record<string, any>, C extends Record<string, any> = Record<string, any>>({ customAuthorizer }: {
+    customAuthorizer: (payload: C) => U | Promise<U | null> | null;
+}) => ({ redirectTo, providers, getProfileFromProvider, createAccountFromProviderIfDoesNotExist }: {
     redirectTo: string;
     providers?: _auth_core_providers.Provider[] | undefined;
     getProfileFromProvider?: ((payload: OAuthUser & {
@@ -22,11 +24,11 @@ declare const configAirAuthentication: <U extends Record<string, any>, C extends
     GET: (req: next_server.NextRequest) => Promise<Response>;
     POST: (req: next_server.NextRequest) => Promise<Response>;
     auth: () => Promise<U>;
-    signIn: (provider: _auth_core_providers.BuiltInProviderType | (string & {}) | undefined, credentials?: C | undefined) => Promise<void>;
+    signIn: (provider: _auth_core_providers.BuiltInProviderType | (string & {}) | undefined, credentials?: C | undefined) => Promise<never>;
     signOut: <R extends boolean = true>(options?: {
         redirectTo?: string | undefined;
         redirect?: R | undefined;
     } | undefined) => Promise<R extends false ? any : never>;
 };
 
-export { configAirAuthentication };
+export { configAuthentication };

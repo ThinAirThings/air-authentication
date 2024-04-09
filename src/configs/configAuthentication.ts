@@ -3,12 +3,15 @@ import Credentials from "next-auth/providers/credentials";
 import { OAuthUser } from "../types/OAuthUser";
 import { redirect } from "next/navigation";
 
-export const configAirAuthentication = <
+
+export const configAuthentication = <
     U extends Record<string, any>,
     C extends Record<string, any> = Record<string, any>,
->(
+>({
+    customAuthorizer
+}: {
     customAuthorizer: (payload: C) => Promise<U | null> | (U | null)
-) => ({
+}) => ({
     redirectTo,
     providers,
     getProfileFromProvider,
@@ -90,7 +93,7 @@ export const configAirAuthentication = <
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
                 console.log("Signing in...")
                 await signIn(provider, { ...credentials ?? {}, redirect: false })
-                // redirect(redirectTo)
+                redirect(redirectTo)
             },
             signOut
         }

@@ -8,6 +8,7 @@
         "build": "tsup",
         "npmpub": "npm run build && git add . && git commit -m \"mod\" && git push && npm version patch && npm publish --access public",
         "format": "npx prettier --write .",
+        "dev": "nodemon --watch src --ext ts,tsx --exec 'npm run build'",
         "prepublishOnly": "npm run build"
     },
     "files": [
@@ -42,10 +43,8 @@
     },
     "keywords": [],
     "author": "Dan Lannan",
-    "peerDependencies": {
-        "next": "^14.1.4"
-    },
     "dependencies": {
+        "next": "^14.2.0-canary.63",
         "next-auth": "^5.0.0-beta.16"
     },
     "release": {

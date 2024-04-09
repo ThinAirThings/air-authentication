@@ -30,14 +30,17 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
-  configAirAuthentication: () => configAirAuthentication
+  configAuthentication: () => configAuthentication
 });
 module.exports = __toCommonJS(src_exports);
 
-// src/configs/configAirAuthentication.ts
+// src/configs/configAuthentication.ts
 var import_next_auth = __toESM(require("next-auth"), 1);
 var import_credentials = __toESM(require("next-auth/providers/credentials"), 1);
-var configAirAuthentication = (customAuthorizer) => ({
+var import_navigation = require("next/navigation");
+var configAuthentication = ({
+  customAuthorizer
+}) => ({
   redirectTo,
   providers,
   getProfileFromProvider,
@@ -105,14 +108,14 @@ var configAirAuthentication = (customAuthorizer) => ({
       (session) => session?.user ? session.user : null
     ),
     signIn: async (provider, credentials) => {
-      console.log(credentials);
+      console.log("Signing in...");
       await signIn(provider, { ...credentials ?? {}, redirect: false });
-      console.log(provider);
+      (0, import_navigation.redirect)(redirectTo);
     },
     signOut
   };
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  configAirAuthentication
+  configAuthentication
 });
