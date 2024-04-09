@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/thinairthings/air-authentication/compare/v1.0.2...v1.0.3) (2024-04-09)
+
+
+### Bug Fixes
+
+* **configauthentication:** update redirect flow to not use nextjs redirect ([60163e7](https://github.com/thinairthings/air-authentication/commit/60163e7c33b61c4e59b20cb826fb37c8be2322f7))
+
 ## [1.0.2](https://github.com/thinairthings/air-authentication/compare/v1.0.1...v1.0.2) (2024-04-09)
 
 ## [1.0.1](https://github.com/thinairthings/air-authentication/compare/v1.0.0...v1.0.1) (2024-04-09)
