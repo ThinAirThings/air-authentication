@@ -46,9 +46,6 @@
     "dependencies": {
         "next-auth": "^5.0.0-beta.16"
     },
-    "peerDependencies": {
-        "next": "^14"
-    },
     "release": {
         "branches": [
             "main",

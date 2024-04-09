@@ -1,7 +1,6 @@
 import NextAuth, { NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials";
 import { OAuthUser } from "../types/OAuthUser";
-import { redirect } from "next/navigation";
 
 
 export const configAuthentication = <
@@ -91,8 +90,7 @@ export const configAuthentication = <
                 session?.user ? session.user : null
             ) as unknown as U,
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
-                await signIn(provider, { ...credentials ?? {}, redirect: false })
-                redirect(redirectTo)
+                await signIn(provider, { ...credentials ?? {}, redirect: true })
             },
             signOut
         }
