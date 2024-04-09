@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: "20"
       - name: Install dependencies
-        run: npm clean-install
+        run: npm clean-install --force
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
