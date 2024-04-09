@@ -4,10 +4,6 @@ import { OAuthUser } from "../types/OAuthUser";
 import { redirect } from "next/navigation";
 
 
-
-
-
-
 export const configAuthentication = <
     U extends Record<string, any>,
     C extends Record<string, any> = Record<string, any>,
@@ -95,7 +91,6 @@ export const configAuthentication = <
                 session?.user ? session.user : null
             ) as unknown as U,
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
-                console.log("Signing in...")
                 await signIn(provider, { ...credentials ?? {}, redirect: false })
                 redirect(redirectTo)
             },

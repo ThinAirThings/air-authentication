@@ -44,10 +44,10 @@
     "keywords": [],
     "author": "Dan Lannan",
     "dependencies": {
-        "next": "^14.2.0-canary.63"
+        "next-auth": "^5.0.0-beta.16"
     },
     "peerDependencies": {
-        "next-auth": "^5.0.0-beta.16"
+        "next": "^14"
     },
     "release": {
         "branches": [
