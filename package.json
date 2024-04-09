@@ -7,7 +7,8 @@
     "scripts": {
         "build": "tsup",
         "npmpub": "npm run build && git add . && git commit -m \"mod\" && git push && npm version patch && npm publish --access public",
-        "format": "npx prettier --write ."
+        "format": "npx prettier --write .",
+        "prepublishOnly": "npm run build"
     },
     "files": [
         "dist"
@@ -29,7 +30,13 @@
         "url": "git+https://github.com/thinairthings/air-authentication.git"
     },
     "devDependencies": {
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^10.0.2",
+        "@semantic-release/npm": "^12.0.0",
         "@types/node": "20.6.3",
+        "cz-conventional-changelog": "^3.3.0",
+        "semantic-release": "^23.0.6",
         "tsup": "^7.2.0",
         "typescript": "~5.2.2"
     },
@@ -40,5 +47,46 @@
     },
     "dependencies": {
         "next-auth": "^5.0.0-beta.16"
+    },
+    "release": {
+        "branches": [
+            "main",
+            "next",
+            {
+                "name": "beta",
+                "prerelease": true
+            }
+        ],
+        "plugins": [
+            [
+                "@semantic-release/commit-analyzer",
+                {
+                    "preset": "angular",
+                    "releaseRules": [
+                        {
+                            "type": "docs",
+                            "release": "patch"
+                        },
+                        {
+                            "type": "build",
+                            "release": "patch"
+                        },
+                        {
+                            "type": "ci",
+                            "release": "patch"
+                        }
+                    ]
+                }
+            ],
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/changelog",
+            "@semantic-release/npm",
+            "@semantic-release/git"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
 }
