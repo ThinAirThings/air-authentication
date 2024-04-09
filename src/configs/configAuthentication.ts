@@ -4,6 +4,10 @@ import { OAuthUser } from "../types/OAuthUser";
 import { redirect } from "next/navigation";
 
 
+
+
+
+
 export const configAuthentication = <
     U extends Record<string, any>,
     C extends Record<string, any> = Record<string, any>,
