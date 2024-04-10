@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/thinairthings/air-authentication/compare/v1.1.0...v1.1.1) (2024-04-10)
+
+
+### Bug Fixes
+
+* **cleanup:** remove console logs ([ee8bf4d](https://github.com/thinairthings/air-authentication/commit/ee8bf4d1fd0e9b199ef778a398d868704a2f4d5c))
+
 # [1.1.0](https://github.com/thinairthings/air-authentication/compare/v1.0.3...v1.1.0) (2024-04-10)
 
 
