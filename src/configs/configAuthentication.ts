@@ -27,7 +27,6 @@ export const configAuthentication = <
         provider: string;
     }) => Promise<U> | U
 }) => {
-        console.log(providers)
         const { signIn, signOut, auth, handlers: { GET, POST } } = NextAuth({
             providers: [
                 Credentials({
@@ -37,7 +36,6 @@ export const configAuthentication = <
             ],
             callbacks: {
                 jwt: async ({ user, token, account }) => {
-                    console.log(user, token, account)
                     if (user) {
                         const provider = account!.provider
                         if (provider === 'credentials') {
@@ -75,7 +73,6 @@ export const configAuthentication = <
                     return token
                 },
                 session: ({ session, token }) => {
-                    console.log(session, token)
                     if (session.user && token.sub) {
                         session.user = Object.fromEntries(Object.entries(token).map(([key, value]) => [key, value])) as any
                     }
