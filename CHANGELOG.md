@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/thinairthings/air-authentication/compare/v1.0.3...v1.1.0) (2024-04-10)
+
+
+### Features
+
+* Add google provider ([9aac404](https://github.com/thinairthings/air-authentication/commit/9aac404fb9cfbb1225d645cedab7c2e91f454db5))
+
 ## [1.0.3](https://github.com/thinairthings/air-authentication/compare/v1.0.2...v1.0.3) (2024-04-09)
 
 
