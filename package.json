@@ -81,10 +81,5 @@
             "@semantic-release/npm",
             "@semantic-release/git"
         ]
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
     }
 }
