@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/thinairthings/air-authentication/compare/v1.1.1...v1.1.2) (2024-04-26)
+
+
+### Bug Fixes
+
+* types for auth return ([bf23acb](https://github.com/thinairthings/air-authentication/commit/bf23acb6eeebe679432cc80b038d0fc574e21a88))
+* types for auth return ([91ee6e7](https://github.com/thinairthings/air-authentication/commit/91ee6e70d509b4b56970382d7a710241d871adfe))
+
 ## [1.1.1](https://github.com/thinairthings/air-authentication/compare/v1.1.0...v1.1.1) (2024-04-10)
 
 
