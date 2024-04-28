@@ -9,7 +9,9 @@
         "npmpub": "npm run build && git add . && git commit -m \"mod\" && git push && npm version patch && npm publish --access public",
         "format": "npx prettier --write .",
         "dev": "nodemon --watch src --ext ts,tsx --exec 'npm run build'",
-        "prepublishOnly": "npm run build"
+        "prepublishOnly": "npm run build",
+        "verdaccio": "pm2 start $(which verdaccio) --name verdaccio",
+        "localpublish": "npm run build && git add . && git commit -m \"mod\" && npm version patch && npm publish --registry http://localhost:4873"
     },
     "files": [
         "dist"

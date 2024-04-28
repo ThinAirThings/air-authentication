@@ -1,5 +1,6 @@
 import * as next_server from 'next/server';
 import * as _auth_core_providers from '@auth/core/providers';
+export { default as GoogleProvider } from 'next-auth/providers/google';
 
 type OAuthUser = {
     name: string;
@@ -23,8 +24,8 @@ declare const configAuthentication: <U extends Record<string, any>, C extends Re
 }) => {
     GET: (req: next_server.NextRequest) => Promise<Response>;
     POST: (req: next_server.NextRequest) => Promise<Response>;
-    auth: () => Promise<U>;
-    signIn: (provider: _auth_core_providers.BuiltInProviderType | (string & {}) | undefined, credentials?: C | undefined) => Promise<never>;
+    auth: () => Promise<U | null>;
+    signIn: (provider: _auth_core_providers.BuiltInProviderType | (string & {}) | undefined, credentials?: C | undefined) => Promise<void>;
     signOut: <R extends boolean = true>(options?: {
         redirectTo?: string | undefined;
         redirect?: R | undefined;

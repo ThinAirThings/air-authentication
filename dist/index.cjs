@@ -30,6 +30,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  GoogleProvider: () => import_google.default,
   configAuthentication: () => configAuthentication
 });
 module.exports = __toCommonJS(src_exports);
@@ -37,7 +38,6 @@ module.exports = __toCommonJS(src_exports);
 // src/configs/configAuthentication.ts
 var import_next_auth = __toESM(require("next-auth"), 1);
 var import_credentials = __toESM(require("next-auth/providers/credentials"), 1);
-var import_navigation = require("next/navigation");
 var configAuthentication = ({
   customAuthorizer
 }) => ({
@@ -46,7 +46,6 @@ var configAuthentication = ({
   getProfileFromProvider,
   createAccountFromProviderIfDoesNotExist
 }) => {
-  console.log(providers);
   const { signIn, signOut, auth, handlers: { GET, POST } } = (0, import_next_auth.default)({
     providers: [
       (0, import_credentials.default)({
@@ -56,7 +55,7 @@ var configAuthentication = ({
     ],
     callbacks: {
       jwt: async ({ user, token, account }) => {
-        console.log(user, token, account);
+        console.log("jwt", user, token, account);
         if (user) {
           const provider = account.provider;
           if (provider === "credentials") {
@@ -93,7 +92,6 @@ var configAuthentication = ({
         return token;
       },
       session: ({ session, token }) => {
-        console.log(session, token);
         if (session.user && token.sub) {
           session.user = Object.fromEntries(Object.entries(token).map(([key, value]) => [key, value]));
         }
@@ -108,14 +106,16 @@ var configAuthentication = ({
       (session) => session?.user ? session.user : null
     ),
     signIn: async (provider, credentials) => {
-      console.log("Signing in...");
-      await signIn(provider, { ...credentials ?? {}, redirect: false });
-      (0, import_navigation.redirect)(redirectTo);
+      await signIn(provider, { ...credentials ?? {}, redirect: true });
     },
     signOut
   };
 };
+
+// src/index.ts
+var import_google = __toESM(require("next-auth/providers/google"), 1);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  GoogleProvider,
   configAuthentication
 });
