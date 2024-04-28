@@ -46,7 +46,7 @@
     "keywords": [],
     "author": "Dan Lannan",
     "dependencies": {
-        "next-auth": "^5.0.0-beta.16"
+        "next-auth": "^5.0.0-beta.17"
     },
     "release": {
         "branches": [
