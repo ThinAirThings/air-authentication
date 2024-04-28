@@ -106,7 +106,12 @@ var configAuthentication = ({
       (session) => session?.user ? session.user : null
     ),
     signIn: async (provider, credentials) => {
-      await signIn(provider, { ...credentials ?? {} });
+      try {
+        await signIn(provider, { ...credentials ?? {} });
+      } catch (_e) {
+        const e = _e;
+        throw e;
+      }
     },
     signOut
   };

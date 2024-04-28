@@ -88,7 +88,12 @@ export const configAuthentication = <
                 session?.user ? session.user : null
             ) as unknown as Promise<U | null>,
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
-                await signIn(provider, { ...credentials ?? {} })
+                try {
+                    await signIn(provider, { ...credentials ?? {} })
+                } catch (_e) {
+                    const e = _e as Error
+                    throw e
+                }
             },
             signOut
         }
