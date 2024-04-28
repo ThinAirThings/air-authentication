@@ -35,6 +35,7 @@ export const configAuthentication = <
                 ...providers ?? []
             ],
             callbacks: {
+
                 jwt: async ({ user, token, account }) => {
                     console.log('jwt', user, token, account)
                     if (user) {
