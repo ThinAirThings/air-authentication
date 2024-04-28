@@ -35,7 +35,6 @@ export const configAuthentication = <
                 ...providers ?? []
             ],
             callbacks: {
-
                 jwt: async ({ user, token, account }) => {
                     console.log('jwt', user, token, account)
                     if (user) {
@@ -89,7 +88,7 @@ export const configAuthentication = <
                 session?.user ? session.user : null
             ) as unknown as Promise<U | null>,
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
-                await signIn(provider, { ...credentials ?? {}, redirect: true })
+                await signIn(provider, { ...credentials ?? {} })
             },
             signOut
         }

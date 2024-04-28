@@ -106,7 +106,7 @@ var configAuthentication = ({
       (session) => session?.user ? session.user : null
     ),
     signIn: async (provider, credentials) => {
-      await signIn(provider, { ...credentials ?? {}, redirect: true });
+      await signIn(provider, { ...credentials ?? {} });
     },
     signOut
   };
