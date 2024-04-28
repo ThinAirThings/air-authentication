@@ -55,7 +55,6 @@ var configAuthentication = ({
     ],
     callbacks: {
       jwt: async ({ user, token, account }) => {
-        console.log("jwt", user, token, account);
         if (user) {
           const provider = account.provider;
           if (provider === "credentials") {
