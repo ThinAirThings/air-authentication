@@ -1,3 +1,5 @@
+## [1.1.4](https://github.com/thinairthings/air-authentication/compare/v1.1.3...v1.1.4) (2024-04-29)
+
 ## [1.1.3](https://github.com/thinairthings/air-authentication/compare/v1.1.2...v1.1.3) (2024-04-29)
 
 
