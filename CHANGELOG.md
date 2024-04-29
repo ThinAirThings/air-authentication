@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/thinairthings/air-authentication/compare/v1.1.4...v1.1.5) (2024-04-29)
+
+
+### Bug Fixes
+
+* add CredentialsSignin to export ([8cad6aa](https://github.com/thinairthings/air-authentication/commit/8cad6aaeebe33d29c9fd31dd50efc1f13ea49e18))
+
 ## [1.1.4](https://github.com/thinairthings/air-authentication/compare/v1.1.3...v1.1.4) (2024-04-29)
 
 ## [1.1.3](https://github.com/thinairthings/air-authentication/compare/v1.1.2...v1.1.3) (2024-04-29)
