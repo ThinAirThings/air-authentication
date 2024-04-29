@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/thinairthings/air-authentication/compare/v1.1.2...v1.1.3) (2024-04-29)
+
+
+### Bug Fixes
+
+* .gitignore ([3a0716a](https://github.com/thinairthings/air-authentication/commit/3a0716aecf456d9d2ce4c0f5d4a4016af617fa1a))
+
 ## [1.1.2](https://github.com/thinairthings/air-authentication/compare/v1.1.1...v1.1.2) (2024-04-26)
 
 
