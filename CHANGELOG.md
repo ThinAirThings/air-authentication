@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/thinairthings/air-authentication/compare/v1.1.8...v1.1.9) (2024-05-17)
+
+
+### Bug Fixes
+
+* credentials signin error type ([162f507](https://github.com/thinairthings/air-authentication/commit/162f5073bf887a778426b87337d9b46daabfcefb))
+
 ## [1.1.8](https://github.com/thinairthings/air-authentication/compare/v1.1.7...v1.1.8) (2024-05-17)
 
 
