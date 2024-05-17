@@ -92,7 +92,7 @@ export const configAuthentication = <
                     await signIn(provider, { ...credentials ?? {} })
                     return Ok(null)
                 } catch (_e) {
-                    return Err(_e as Error)
+                    return Err(JSON.parse(JSON.stringify(_e)))
                 }
             },
             signOut
