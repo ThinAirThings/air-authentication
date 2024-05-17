@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthConfig } from "next-auth"
+import NextAuth, { CredentialsSignin, NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials";
 import { OAuthUser } from "../types/OAuthUser";
 import { Err, Ok } from "../types/Result";
@@ -92,7 +92,8 @@ export const configAuthentication = <
                     await signIn(provider, { ...credentials ?? {} })
                     return Ok(null)
                 } catch (_e) {
-                    return Err(JSON.parse(JSON.stringify(_e)))
+                    const e = _e as CredentialsSignin
+                    return Err(JSON.parse(JSON.stringify(e)))
                 }
             },
             signOut
