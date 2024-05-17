@@ -1,6 +1,7 @@
 import NextAuth, { NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials";
 import { OAuthUser } from "../types/OAuthUser";
+import { Err, Ok } from "../types/Result";
 
 
 export const configAuthentication = <
@@ -89,9 +90,9 @@ export const configAuthentication = <
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
                 try {
                     await signIn(provider, { ...credentials ?? {} })
+                    return Ok(null)
                 } catch (_e) {
-                    const e = _e as Error
-                    throw e
+                    return Err(_e as Error)
                 }
             },
             signOut
