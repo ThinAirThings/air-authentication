@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/thinairthings/air-authentication/compare/v1.1.5...v1.1.6) (2024-05-17)
+
+
+### Bug Fixes
+
+* Error handling on signIn function ([d8a7720](https://github.com/thinairthings/air-authentication/commit/d8a7720267af82868535deb5f74bd460255c1095))
+
 ## [1.1.5](https://github.com/thinairthings/air-authentication/compare/v1.1.4...v1.1.5) (2024-04-29)
 
 
