@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/thinairthings/air-authentication/compare/v1.1.6...v1.1.7) (2024-05-17)
+
+
+### Bug Fixes
+
+* Error return ([6a76998](https://github.com/thinairthings/air-authentication/commit/6a76998c43a6438077283fa9d40634c2f8899256))
+
 ## [1.1.6](https://github.com/thinairthings/air-authentication/compare/v1.1.5...v1.1.6) (2024-05-17)
 
 
