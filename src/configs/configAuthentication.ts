@@ -93,7 +93,7 @@ export const configAuthentication = <
                     return Ok(null)
                 } catch (_e) {
                     const e = _e as CredentialsSignin
-                    return Err(JSON.parse(JSON.stringify(e)))
+                    return Err(JSON.parse(JSON.stringify(e)) as CredentialsSignin)
                 }
             },
             signOut
