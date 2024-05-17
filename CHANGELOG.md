@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/thinairthings/air-authentication/compare/v1.1.7...v1.1.8) (2024-05-17)
+
+
+### Bug Fixes
+
+* error typing ([d9aa33f](https://github.com/thinairthings/air-authentication/commit/d9aa33fec193b85f7de56165f1d1b5da299cecee))
+
 ## [1.1.7](https://github.com/thinairthings/air-authentication/compare/v1.1.6...v1.1.7) (2024-05-17)
 
 
