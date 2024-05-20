@@ -91,9 +91,10 @@ export const configAuthentication = <
                 try {
                     return await signIn(provider, { ...credentials ?? {} })
                 } catch (_e) {
-                    const e = _e as CredentialsSignin
-                    console.log(e)
-                    return Err(JSON.parse(JSON.stringify(e)) as CredentialsSignin)
+                    throw _e
+                    // const e = _e as CredentialsSignin
+                    // console.log(e)
+                    // return Err(JSON.parse(JSON.stringify(e)) as CredentialsSignin)
                 }
             },
             signOut
