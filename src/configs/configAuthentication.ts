@@ -89,10 +89,10 @@ export const configAuthentication = <
             ) as unknown as Promise<U | null>,
             signIn: async (provider: Parameters<typeof signIn>[0], credentials?: C) => {
                 try {
-                    await signIn(provider, { ...credentials ?? {} })
-                    return Ok(null)
+                    return await signIn(provider, { ...credentials ?? {} })
                 } catch (_e) {
                     const e = _e as CredentialsSignin
+                    console.log(e)
                     return Err(JSON.parse(JSON.stringify(e)) as CredentialsSignin)
                 }
             },
