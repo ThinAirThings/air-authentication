@@ -1,3 +1,10 @@
+## [1.1.10](https://github.com/thinairthings/air-authentication/compare/v1.1.9...v1.1.10) (2024-05-20)
+
+
+### Bug Fixes
+
+* modify sign in ([266739e](https://github.com/thinairthings/air-authentication/commit/266739eb0202b2aa481c534492bc8ceec37f305d))
+
 ## [1.1.9](https://github.com/thinairthings/air-authentication/compare/v1.1.8...v1.1.9) (2024-05-17)
 
 
