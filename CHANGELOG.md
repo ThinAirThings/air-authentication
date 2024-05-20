@@ -1,3 +1,10 @@
+## [1.1.11](https://github.com/thinairthings/air-authentication/compare/v1.1.10...v1.1.11) (2024-05-20)
+
+
+### Bug Fixes
+
+* throw error ([1b82e53](https://github.com/thinairthings/air-authentication/commit/1b82e538c76d86694c9c82919ceec1256f7fac3a))
+
 ## [1.1.10](https://github.com/thinairthings/air-authentication/compare/v1.1.9...v1.1.10) (2024-05-20)
 
 
